@@ -8,7 +8,7 @@
 int main() {
     setlocale(LC_ALL, "rus");
     MyString path;
-    std::cout << "Введите путь до файла\n";
+    std::cout << "Write path to the file:\n";
     std::cin >> path; // Вводим путь до файла с консоли
 
 //    std::cout << path.getLength();
@@ -68,11 +68,9 @@ int main() {
         }
     }
     in.close();
-    myArray.print();
+   // myArray.print();
 
-    std::cout << "Последний вышедший фильм: ";
-    Film lastFilm = giveMax(myArray);
-    std::cout << lastFilm.getName() << "\n";
+
 
     sort<Film>(myArray,[](Film& f1, Film &f2)->bool{ return f1 > f2;});
    // myArray.print();
@@ -82,12 +80,19 @@ int main() {
         out.setf(std::ios_base::left);
         out << std::setw(51) << labels[0] << std::setw(21) << labels[1] << std::setw(21) << labels[2] << std::setw(21) << labels[3] << std::setw(6) << labels[4] << "\n";
         out << myArray;
+        out<<"\n\n";
+        //Последний вышедший фильм
+        out << "The newest film:\n";
+        Film lastFilm = giveMax(myArray);
+        out << lastFilm << "\n\n";
+
+
         //Список жанров
         std::list<MyString> genres;
         for (int i = 0; i < myArray.getLength(); ++i) {
             genres.push_back(myArray[i].getGenre());
         }
-        out << "\n\n\nСписок жанров:\n";
+        out << "List of genres:\n";
         for (MyString genre: genres){
             out << genre << "\n";
         }
