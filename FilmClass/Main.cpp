@@ -4,15 +4,16 @@
 #include "MyString.h"
 #include "Film.h"
 #include "MyArray.h"
+#include "Exception.h"
 #include <list>
-int main() {
-    setlocale(LC_ALL, "rus");
-    MyString path;
-    std::cout << "Write path to the file:\n";
-    std::cin >> path; // Вводим путь до файла с консоли
 
-//    std::cout << path.getLength();
-//    std::cout << path;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    MyString path = "C:\\Users\\at020\\source\\repos\\FilmClass\\FilmClass\\in.txt";
+    //std::cout << "Write path to the file:\n";
+    //std::cin >> path; // Вводим путь до файла с консоли
+
     std::ifstream in(path.getString());
     if (!in.is_open()) {
         std::cerr << "the file doesn't exist\n";
@@ -34,14 +35,14 @@ int main() {
             std::cerr << "invalid input\n";
             return -1;
         }
-        MyString fioDirector;
-        in >> fioDirector;
+        MyString nameDirector;
+        in >> nameDirector;
         if (!in) {
             std::cerr << "invalid input\n";
             return -1;
         }
-        MyString fioScreenwriter;
-        in >> fioScreenwriter;
+        MyString nameScreenwriter;
+        in >> nameScreenwriter;
         if (!in) {
             std::cerr << "invalid input\n";
             return -1;
@@ -60,48 +61,39 @@ int main() {
         }
         in.ignore(1000, '\n');
         try {
-            Film film(name, fioDirector, fioScreenwriter, year, genre);
+            Film film(name, nameDirector, nameScreenwriter, year, genre);
             myArray.add(film);
-        } catch (char *r) {
-            std::cerr << r; //TODO отлавливать ошибки
-            return -2;
+        } catch (Exception &e) {
+            std::cerr << e.get_msg() << ": " << name << "\n";
+            std::cerr << "Skip this film\n";
+            //return -2;
         }
     }
     in.close();
-   // myArray.print();
-
-
-
-    sort<Film>(myArray,[](Film& f1, Film &f2)->bool{ return f1 > f2;});
-   // myArray.print();
+    sort<Film>(myArray, [](Film &f1, Film &f2) -> bool { return f1.getName() > f2.getName(); });
     std::ofstream out("C:\\Users\\at020\\source\\repos\\FilmClass\\FilmClass\\out.txt");
-    if(out.is_open()){
-        MyString * labels = Film::getFieldsNames();
+    if (out.is_open()) {
+        MyString *labels = Film::getFieldsNames();
         out.setf(std::ios_base::left);
-        out << std::setw(51) << labels[0] << std::setw(21) << labels[1] << std::setw(21) << labels[2] << std::setw(21) << labels[3] << std::setw(6) << labels[4] << "\n";
+        out << std::setw(51) << labels[0] << std::setw(21) << labels[1] << std::setw(21) << labels[2] << std::setw(21)
+            << labels[3] << std::setw(6) << labels[4] << "\n";
         out << myArray;
-        out<<"\n\n";
+        out << "\n\n";
         //Последний вышедший фильм
         out << "The newest film:\n";
         Film lastFilm = giveMax(myArray);
         out << lastFilm << "\n\n";
-
-
         //Список жанров
         std::list<MyString> genres;
         for (int i = 0; i < myArray.getLength(); ++i) {
             genres.push_back(myArray[i].getGenre());
         }
         out << "List of genres:\n";
-        for (MyString genre: genres){
+        for (MyString genre: genres) {
             out << genre << "\n";
         }
-
         out.close();
-    }else{
-        std::cerr << "couldn't open the file";
+    } else {
+        std::cerr << "couldn't open the file\n";
     }
-
-
-
 }

@@ -7,4 +7,4 @@ include_directories(FilmClass)
 
 add_executable(FilmClass
         FilmClass/Film.h
-        FilmClass/Main.cpp FilmClass/Film.cpp FilmClass/MyArray.cpp FilmClass/MyArray.h FilmClass/MyString.cpp FilmClass/MyString.h)
+        FilmClass/Main.cpp FilmClass/Film.cpp FilmClass/MyArray.cpp FilmClass/MyArray.h FilmClass/MyString.cpp FilmClass/MyString.h FilmClass/Exception.cpp FilmClass/Exception.h)

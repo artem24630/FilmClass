@@ -1,13 +1,15 @@
 Film title                                         Director             Screenwriter         Genre                Year  
-Pretty woman                                       Ivanov P.P.          Sidorov V.V.         comedy               1990  
-Pulp Fiction                                       Tarantino Q.J.       Tarantino Q.J.       drama                1994  
-One in a house                                     Ivanov A.P.          Sidorov V.V.         comedy               2000  
+A                                                  Ivanov A.P.          Sidorov V.V.         comedy               1990  
+B                                                  Ivanov P.P.          Sidorov V.V.         comedy               1990  
+C                                                  Tarantino Q.J.       Tarantino Q.J.       Comedy               1993  
+D                                                  Ivanov A.A.          Tarantino Q.J.       drama                1994  
 
 
 The newest film:
-One in a house                                     Ivanov A.P.          Sidorov V.V.         comedy               2000  
+D                                                  Ivanov A.A.          Tarantino Q.J.       drama                1994  
 
 List of genres:
 comedy
-drama
 comedy
+Comedy
+drama
