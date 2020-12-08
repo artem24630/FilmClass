@@ -10,10 +10,9 @@
 int main()
 {
     setlocale(LC_ALL, "rus");
-    MyString path = "C:\\Users\\at020\\source\\repos\\FilmClass\\FilmClass\\in.txt";
-    //std::cout << "Write path to the file:\n";
-    //std::cin >> path; // Вводим путь до файла с консоли
-
+    MyString path;
+    std::cout << "Write path to the file:\n";
+    std::cin >> path; // Вводим путь до файла с консоли
     std::ifstream in(path.getString());
     if (!in.is_open()) {
         std::cerr << "the file doesn't exist\n";
@@ -66,11 +65,10 @@ int main()
         } catch (Exception &e) {
             std::cerr << e.get_msg() << ": " << name << "\n";
             std::cerr << "Skip this film\n";
-            //return -2;
         }
     }
     in.close();
-    sort<Film>(myArray, [](Film &f1, Film &f2) -> bool { return f1.getName() > f2.getName(); });
+    sort<Film>(myArray, [](Film &f1, Film &f2) -> bool { return f1 > f2; });
     std::ofstream out("C:\\Users\\at020\\source\\repos\\FilmClass\\FilmClass\\out.txt");
     if (out.is_open()) {
         MyString *labels = Film::getFieldsNames();
@@ -96,4 +94,5 @@ int main()
     } else {
         std::cerr << "couldn't open the file\n";
     }
+    return 0;
 }

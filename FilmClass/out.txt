@@ -1,15 +1,15 @@
 Film title                                         Director             Screenwriter         Genre                Year  
-A                                                  Ivanov A.P.          Sidorov V.V.         comedy               1990  
-B                                                  Ivanov P.P.          Sidorov V.V.         comedy               1990  
+123                                                Ivanov A.A.          Makarov S.T.         Horror               1932  
+A                                                  Ivanov A.P.          Sidorov V.V.         Comedy               1990  
+B                                                  Ivanov P.P.          Sidorov V.V.         Comedy               1990  
 C                                                  Tarantino Q.J.       Tarantino Q.J.       Comedy               1993  
-D                                                  Ivanov A.A.          Tarantino Q.J.       drama                1994  
 
 
 The newest film:
-D                                                  Ivanov A.A.          Tarantino Q.J.       drama                1994  
+C                                                  Tarantino Q.J.       Tarantino Q.J.       Comedy               1993  
 
 List of genres:
-comedy
-comedy
+Horror
 Comedy
-drama
+Comedy
+Comedy

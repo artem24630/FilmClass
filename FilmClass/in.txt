@@ -1,12 +1,12 @@
 A
 Ivanov A.P.
 Sidorov V.V.
-comedy
+Comedy
 1990
 B
 Ivanov P.P.
 Sidorov V.V.
-comedy
+Comedy
 1990
 C
 Tarantino Q.J.
@@ -18,3 +18,13 @@ Ivanov A.A.
 Tarantino Q.J.
 drama
 1994
+E
+Ivanov A.A
+Makarov S.T.
+Horror
+1945
+123
+Ivanov A.A.
+Makarov S.T.
+Horror
+1932

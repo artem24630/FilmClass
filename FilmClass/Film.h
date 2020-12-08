@@ -4,7 +4,8 @@
 #include <string>
 #include <MyString.h>
 
-class Film {
+class Film
+{
 public:
     Film();
     Film(const MyString &name2, const MyString &fioDirector2, const MyString &fioScreenwriter2, const int &year2,

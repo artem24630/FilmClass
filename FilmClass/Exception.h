@@ -7,16 +7,14 @@
 
 #include <MyString.h>
 
-class Exception {
+class Exception
+{
 public:
+    Exception() = delete;
     Exception(const char *msg_);
-
     Exception(MyString msg_);
-
     ~Exception() = default;
-
     const MyString &get_msg() const;
-
 private:
     MyString msg;
 };
